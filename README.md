@@ -9,6 +9,9 @@ formula/type checks, macro safety, and a diff against the original template).
 > Built with FastAPI + python-docx + openpyxl on the backend, React + Tailwind on the frontend,
 > Cloudflare R2 for file storage, and deployable to Cloudflare Containers + Pages.
 
+> 📖 **Deep dive:** see the [Developer Guide](DEVELOPER_GUIDE.md) for exactly how the
+> `.xlsx`/`.docx` editing, file downloads, and review pipeline work internally.
+
 ---
 
 ## ✨ Features
