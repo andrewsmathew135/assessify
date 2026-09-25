@@ -1,0 +1,35 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "assessify-backend",
+  "main": "worker.ts",
+  "compatibility_date": "2025-09-15",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // The container image is built from the Dockerfile in this directory.
+  "containers": [
+    {
+      "class_name": "Backend",
+      "image": "./Dockerfile",
+      "name": "assessify-backend",
+      "instances": 1,
+      "max_instances": 3
+    }
+  ],
+
+  // A Durable Object manages the container lifecycle.
+  "durable_objects": {
+    "bindings": [{ "class_name": "Backend", "name": "BACKEND" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Backend"] }],
+
+  // Non-secret vars. Secrets (ADMIN_PASSWORD, JWT_SECRET, R2 keys) must be set
+  // with:  npx wrangler secret put <NAME>
+  "vars": {
+    "ENVIRONMENT": "production",
+    "STORAGE_BACKEND": "r2",
+    "R2_BUCKET": "assessments",
+    "R2_REGION": "auto",
+    "SESSION_EXPIRY_DAYS": "14",
+    "CORS_ORIGINS": "https://assessify.pages.dev"
+  }
+}

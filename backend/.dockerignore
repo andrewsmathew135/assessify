@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.pyc
+data/
+tests/
+.env
+.pytest_cache/
+*.db
+*.log
+diag.txt
+sentinel.txt
+
+# Cloudflare Worker glue is not needed inside the Python image
+node_modules/
+worker.ts
+wrangler.jsonc
+package.json
+.wrangler/

@@ -1,0 +1,39 @@
+# --- Python / backend ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+backend/data/
+*.db
+*.sqlite3
+.env
+!.env.example
+
+# --- Node / frontend ---
+node_modules/
+frontend/dist/
+frontend/.env
+!frontend/.env.example
+*.log
+
+# TypeScript build artifacts
+*.tsbuildinfo
+frontend/vite.config.d.ts
+frontend/vite.config.js
+
+# --- Cloudflare / wrangler ---
+.wrangler/
+.dev.vars
+
+# --- Editor / OS ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# --- Fortify tooling metadata (not part of the project) ---
+.fortify/
